@@ -38,8 +38,8 @@ ul li button{
 .toast {
   visibility: hidden;
   width: 500px;
-  background-color: #333;
-  color: white;
+  background-color: #e7881b;
+
   text-align: center;
   border-radius: 8px;
   padding: 12px;
