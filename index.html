@@ -1,63 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Dashboard</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="sidebar.css">
-    <link rel="stylesheet" href="card.css">
-    <link rel="stylesheet" href="chart.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="sidebar.css">
+  <link rel="stylesheet" href="card.css">
+  <link rel="stylesheet" href="chart.css">
+  <link rel="stylesheet" href="activity.css">
 </head>
-
 <body>
 
-    <!-- top navbar with profile & toggle theme -->
-    <ul class="nav">
-        <li class="li">
-            <h2 style="float:left;">Interactive Dashboard</h2>
-        </li>
+  <!-- Top Navbar -->
+  <ul class="nav">
+    <li class="li"><h2 style="float:left;">Interactive Dashboard</h2></li>
 
-        <li class="li" style="float:right;margin-top:10px;margin-right:10px;">
-            <button id="togglebutton" onclick="myFunction()">🌙 Dark Mode</button>
-        </li>
+    <li class="li" style="float:right;margin-top:10px;margin-right:10px;">
+      <button id="togglebutton" onclick="myFunction()">🌙 Dark Mode</button>
+    </li>
 
-        <li class="li" style="float:right;margin-top:10px;margin-right:10px;">
-            <button id="togglebutton">🙎‍♂️ Profile</button>
-        </li>
-    </ul>
+    <li class="li" style="float:right;margin-top:10px;margin-right:10px;">
+      <button>🙎‍♂️ Profile</button>
+    </li>
+  </ul>
 
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <a class="active" href="#" id="homeLink">Home</a>
+    <a href="#" id="activityLink">Activity</a>
+  </div>
 
-    <!-- <hr style=" border: 1px solid #e7881b;"> -->
-
-    <!-- side nav bar -->
-    <div class="sidebar">
-        <a class="active" href="#home">Home</a>
-        <a href="#news">Activity</a>
+  <!-- Dashboard Section -->
+  <div class="dashboard" id="dashboardSection">
+    <div class="container"></div>
+    <div class="chart-container">
+      <canvas id="myChart"></canvas>
     </div>
+      <select id="chartFilter">
+    <option value="all">All Metrics</option>
+    <option value="users">Users</option>
+    <option value="sales">Sales</option>
+    <option value="visitors">Visitors</option>
+  </select>
+  </div>
 
-    <!-- cards and chart with api configuration -->
-    <div class="dashboard">
+  <!--  Activity Section -->
+  <div class="activity-section" id="activitySection" style="display:none;">
+    <h3>Recent Activity Log</h3>
+    <table class="activity-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>User</th>
+          <th>Action</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody id="activityBody">
+      
+      </tbody>
+    </table>
+  </div>
 
-        <div class="container"> </div>
-
-        <div class="chart-container">
-            <canvas id="myChart"></canvas>
-        </div>
-
-    </div>
-
-    <script src="toggle.js"></script>
-
-    <script src="cards.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="charts.js"></script>
-
-    
+  <!-- Scripts -->
+  <script src="toggle.js"></script>
+  <script src="cards.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="charts.js"></script>
+  <script src="activity.js"></script>
+  <script src="navigation.js"></script>
 
 </body>
-
 </html>

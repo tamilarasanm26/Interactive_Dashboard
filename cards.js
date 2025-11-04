@@ -1,5 +1,5 @@
 // Function to fetch product data
-async function fetchData() {
+async function fetchSalesData() {
     try {
         const response = await fetch('https://fakerapi.it/api/v1/products?_quantity=18');
         const data = await response.json();
@@ -19,7 +19,7 @@ async function fetchVisitorData() {
     }
 }
 
-// ✅ Function to fetch total users
+//  Function to fetch total users
 async function fetchUserData() {
     try {
         const response = await fetch('https://dummyjson.com/users');
@@ -34,13 +34,13 @@ async function renderCards() {
   const container = document.querySelector('.container');
   const [userTotal, salesTotal, visitorTotal] = await Promise.all([
       fetchUserData(),
-    fetchData(),
+    fetchSalesData(),
     fetchVisitorData()
   ]);
 
   const totals = { userTotal, salesTotal, visitorTotal };
 
-  // --- Create cards ---
+  // cards for displying total metrics
   const createCard = (title, value) => {
     const card = document.createElement('div');
     card.classList.add('card');
@@ -52,7 +52,7 @@ async function renderCards() {
   createCard('Total Sales', salesTotal);
   createCard('Total Visitors', visitorTotal);
 
-  // --- Pass totals to chart.js ---
+  // Pass totals to chart.js for chart creation
   // Store in global variable for chart.js to use
   window.dashboardTotals = totals;
 }

@@ -6,8 +6,17 @@ window.addEventListener('load', () => {
       const { userTotal, salesTotal, visitorTotal } = window.dashboardTotals;
 
       const ctx = document.getElementById('myChart');
+      const filter = document.getElementById('chartFilter');
 
-      new Chart(ctx, {
+      // Store all data
+      const allData = {
+        users: userTotal,
+        sales: salesTotal,
+        visitors: visitorTotal
+      };
+
+      // Create chart instance
+      let chart = new Chart(ctx, {
         type: 'bar',
         data: {
           labels: ['Users', 'Sales', 'Visitors'],
@@ -28,18 +37,30 @@ window.addEventListener('load', () => {
             title: {
               display: true,
               text: 'Dashboard Overview',
-              color: '#e7881b', 
+              color: '#e7881b',
               font: { size: 18 }
             },
-            legend: { 
-                display: false 
-            
-            }
+            legend: { display: false }
           },
           scales: {
             y: { beginAtZero: true }
           }
         }
+      });
+
+      // Update chart based on dropdown
+      filter.addEventListener('change', (e) => {
+        const value = e.target.value;
+
+        if (value === 'all') {
+          chart.data.labels = ['Users', 'Sales', 'Visitors'];
+          chart.data.datasets[0].data = [allData.users, allData.sales, allData.visitors];
+        } else {
+          chart.data.labels = [value.charAt(0).toUpperCase() + value.slice(1)];
+          chart.data.datasets[0].data = [allData[value]];
+        }
+
+        chart.update();
       });
     }
   }, 200);

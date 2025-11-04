@@ -1,9 +1,10 @@
 .activity-section {
-  margin: 30px;
+  margin-left: 300px;
   padding: 20px;
   border: 1px solid #e7881b;
   border-radius: 8px;
-  background-color: #fff;
+    width: 600px;
+
 }
 
 .activity-section h3 {
@@ -12,7 +13,7 @@
 }
 
 .activity-table {
-  width: 100%;
+  width: 600px;
   border-collapse: collapse;
 }
 
