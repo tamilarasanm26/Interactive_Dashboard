@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="card.css">
+    <link rel="stylesheet" href="chart.css">
+
+</head>
+
+<body>
+
+    <!-- top navbar with profile & toggle theme -->
+    <ul class="nav">
+        <li class="li">
+            <h2 style="float:left;">Interactive Dashboard</h2>
+        </li>
+
+        <li class="li" style="float:right;margin-top:10px;margin-right:10px;">
+            <button id="togglebutton" onclick="myFunction()">🌙 Dark Mode</button>
+        </li>
+
+        <li class="li" style="float:right;margin-top:10px;margin-right:10px;">
+            <button id="togglebutton">🙎‍♂️ Profile</button>
+        </li>
+    </ul>
+
+
+    <!-- <hr style=" border: 1px solid #e7881b;"> -->
+
+    <!-- side nav bar -->
+    <div class="sidebar">
+        <a class="active" href="#home">Home</a>
+        <a href="#news">Activity</a>
+    </div>
+
+    <!-- cards and chart with api configuration -->
+    <div class="dashboard">
+
+        <div class="container"> </div>
+
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+        </div>
+
+    </div>
+
+    <script src="toggle.js"></script>
+
+    <script src="cards.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="charts.js"></script>
+
+    
+
+</body>
+
+</html>

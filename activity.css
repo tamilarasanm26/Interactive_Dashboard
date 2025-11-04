@@ -1,0 +1,28 @@
+.activity-section {
+  margin: 30px;
+  padding: 20px;
+  border: 1px solid #e7881b;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.activity-section h3 {
+  color: #e7881b;
+  margin-bottom: 10px;
+}
+
+.activity-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.activity-table th, .activity-table td {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.activity-table th {
+  background-color: #e7881b;
+  color: white;
+}
