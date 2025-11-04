@@ -1,7 +1,7 @@
 // Function to fetch product data
 async function fetchSalesData() {
     try {
-        const response = await fetch('https://fakerapi.it/api/v1/products?_quantity=18');
+        const response = await fetch('https://fakerapi.it/api/v1/products?_quantity=145');
         const data = await response.json();
         return data.total;
     } catch (error) {
@@ -11,7 +11,7 @@ async function fetchSalesData() {
 // Function to fetch product data
 async function fetchVisitorData() {
     try {
-        const response = await fetch('https://fakerapi.it/api/v1/persons?_quantity=10');
+        const response = await fetch('https://fakerapi.it/api/v1/persons?_quantity=34');
         const data = await response.json();
         return data.total;
     } catch (error) {

@@ -38,7 +38,7 @@ window.addEventListener('load', () => {
               display: true,
               text: 'Dashboard Overview',
               color: '#e7881b',
-              font: { size: 18 }
+              font: { size: 20}
             },
             legend: { display: false }
           },
