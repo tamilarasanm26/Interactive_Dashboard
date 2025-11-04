@@ -30,7 +30,9 @@
     <a class="active" href="#" id="homeLink">Home</a>
     <a href="#" id="activityLink">Activity</a>
   </div>
-
+  
+   <div id="toast" class="toast"> </div>
+   
   <!-- Dashboard Section -->
   <div class="dashboard" id="dashboardSection">
     
@@ -71,6 +73,27 @@
   <script src="charts.js"></script>
   <script src="activity.js"></script>
   <script src="navigation.js"></script>
+
+
+
+
+ 
+
+
+
+<script>
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3000);
+}
+
+
+showToast("Welcome to admin dashboard");
+</script>
 
 </body>
 </html>

@@ -19,10 +19,6 @@ ul {
 }
 
 
-/* ul h2
-{
-    color:#e7881b;
-} */
 
 ul li button:hover {
   background-color: #ffd91c;
@@ -36,6 +32,26 @@ ul li button{
   border-radius: 15%;
   padding: 5px;
   
+}
+
+
+.toast {
+  visibility: hidden;
+  width: 500px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  border-radius: 8px;
+  padding: 12px;
+  margin-left: 500px;
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.5s, bottom 0.5s;
+}
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+  bottom: 50px;
 }
 
 .color-mode {
