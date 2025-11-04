@@ -8,14 +8,14 @@ window.addEventListener('load', () => {
       const ctx = document.getElementById('myChart');
       const filter = document.getElementById('chartFilter');
 
-      // Store all data
+     
       const allData = {
         users: userTotal,
         sales: salesTotal,
         visitors: visitorTotal
       };
 
-      // Create chart instance
+      // Create chart using total values get from cards.js gobal variable
       let chart = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -24,8 +24,8 @@ window.addEventListener('load', () => {
             label: 'Dashboard Metrics',
             data: [userTotal, salesTotal, visitorTotal],
             backgroundColor: [
+              'rgba(253, 101, 0, 0.7)',
               'rgba(54, 162, 235, 0.7)',
-              'rgba(255, 206, 86, 0.7)',
               'rgba(75, 192, 192, 0.7)'
             ],
             borderWidth: 1
@@ -48,7 +48,7 @@ window.addEventListener('load', () => {
         }
       });
 
-      // Update chart based on dropdown
+      // filter chart based on dropdown value
       filter.addEventListener('change', (e) => {
         const value = e.target.value;
 
@@ -59,7 +59,6 @@ window.addEventListener('load', () => {
           chart.data.labels = [value.charAt(0).toUpperCase() + value.slice(1)];
           chart.data.datasets[0].data = [allData[value]];
         }
-
         chart.update();
       });
     }
