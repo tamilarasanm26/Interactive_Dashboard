@@ -13,9 +13,9 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #e7881b;
-  border: 5px solid;
-  border-color: rgb(255, 115, 0);
+  background-color: #a0d1de;
+  /* border: 5px solid; */
+  /* border-color: rgb(255, 115, 0); */
 }
 
 
@@ -26,8 +26,8 @@ ul li button:hover {
 }
 
 ul li button{
-  background-color: #e7881b;
-   border: 3px solid rgb(255, 115, 0);
+  background-color: #65b1cf;
+   /* border: 3px solid rgb(255, 115, 0); */
 
   border-radius: 15%;
   padding: 5px;
@@ -38,14 +38,15 @@ ul li button{
 .toast {
   visibility: hidden;
   width: 500px;
-  background-color: #e7881b;
-
+  background-color: rgb(38, 98, 125); 
+  font-size: 20px;
+  font-weight: bold;
   text-align: center;
   border-radius: 8px;
   padding: 12px;
   margin-left: 500px;
   margin-top: 10px;
-  opacity: 0;
+  opacity: 10;
   transition: opacity 0.5s, bottom 0.5s;
 }
 .toast.show {

@@ -14,14 +14,15 @@
 
   <!-- Top Navbar -->
   <ul class="nav">
-    <li class="li"><h2 style="float:left;">Interactive Dashboard</h2></li>
+    <li class="li"><h2 style="float:left;">ADMIN DASHBOARD</h2></li>
 
     <li class="li" style="float:right;margin-top:10px;margin-right:10px;">
       <button id="togglebutton" onclick="myFunction()">🌙 Dark Mode</button>
     </li>
 
-    <li class="li" style="float:right;margin-top:10px;margin-right:10px;">
-      <button>🙎‍♂️ Profile</button>
+    <li class="li" style="float:right;margin-top:15px;margin-right:10px;">
+      <a>🙎‍♂️ Profile</a>
+      <!-- button changes --> 
     </li>
   </ul>
 
@@ -43,8 +44,8 @@
       <select id="chartFilter">
     <option value="all">All Metrics</option>
     <option value="users">Users</option>
-    <option value="sales">Sales</option>
     <option value="visitors">Visitors</option>
+    <option value="sales">Sales</option>
   </select>
   </div>
 
@@ -89,7 +90,7 @@ function showToast(message) {
 }
 
 
-showToast("Welcome to admin dashboard");
+showToast(" 🔔 Welcome to the Dashboard! Data is loading...");
 </script>
 
 </body>

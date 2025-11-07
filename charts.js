@@ -8,7 +8,6 @@ window.addEventListener('load', () => {
       const ctx = document.getElementById('myChart');
       const filter = document.getElementById('chartFilter');
 
-     
       const allData = {
         users: userTotal,
         sales: salesTotal,
@@ -19,28 +18,30 @@ window.addEventListener('load', () => {
       let chart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: ['Users', 'Sales', 'Visitors'],
-          datasets: [{
-            label: 'Dashboard Metrics',
-            data: [userTotal, salesTotal, visitorTotal],
-            backgroundColor: [
-              'rgba(253, 101, 0, 0.7)',
-              'rgba(54, 162, 235, 0.7)',
-              'rgba(75, 192, 192, 0.7)'
-            ],
-            borderWidth: 1
-          }]
+          labels: ['Dashboard Overview'],
+          datasets: [
+            {
+              label: 'Users',
+              data: [userTotal],
+              backgroundColor: '#c1b782ff' // orange
+            },
+            {
+              label: 'Visitors',
+              data: [visitorTotal],
+              backgroundColor: '#6aa778ff' // blue
+            },
+            {
+              label: 'Sales',
+              data: [salesTotal],
+              backgroundColor: '#7597bcff' // teal
+            }
+          ]
         },
         options: {
           responsive: true,
           plugins: {
-            title: {
-              display: true,
-              text: 'Dashboard Overview',
-              color: '#e7881b',
-              font: { size: 20}
-            },
-            legend: { display: false }
+           
+            legend: { display: true, onClick: null } 
           },
           scales: {
             y: { beginAtZero: true }
@@ -48,17 +49,24 @@ window.addEventListener('load', () => {
         }
       });
 
-      // filter chart based on dropdown value
+      // Filter dropdown logic
       filter.addEventListener('change', (e) => {
         const value = e.target.value;
 
         if (value === 'all') {
-          chart.data.labels = ['Users', 'Sales', 'Visitors'];
-          chart.data.datasets[0].data = [allData.users, allData.sales, allData.visitors];
+          chart.data.labels = ['Dashboard Overview'];
+          chart.data.datasets[0].data = [allData.users];
+          chart.data.datasets[1].data = [allData.visitors];
+          chart.data.datasets[2].data = [allData.sales];
         } else {
           chart.data.labels = [value.charAt(0).toUpperCase() + value.slice(1)];
-          chart.data.datasets[0].data = [allData[value]];
+          chart.data.datasets.forEach((d) => (d.data = []));
+          const target = chart.data.datasets.find(
+            (d) => d.label.toLowerCase() === value
+          );
+          if (target) target.data = [allData[value]];
         }
+
         chart.update();
       });
     }

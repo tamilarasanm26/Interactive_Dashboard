@@ -1,7 +1,8 @@
 const activityLog = [
   { id: 1, name: 'Tamilarasan', action: 'Generated PDF report', time: '09:30 AM' },
   { id: 2, name: 'Sowmiya', action: 'Logged in', time: '09:45 AM' },
-  { id: 3, name: 'Nitesh', action: 'Added a new sale', time: '10:15 AM'}
+  { id: 3, name: 'Nitesh', action: 'Added a new sale', time: '10:15 AM'},
+  { id: 4, name: 'tamil', action: 'Added a new sale', time: '10:15 AM'},
 ];
 
 function renderActivityTable() {

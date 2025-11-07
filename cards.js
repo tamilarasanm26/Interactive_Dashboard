@@ -33,29 +33,33 @@ async function fetchUserData() {
 async function renderCards() {
   const container = document.querySelector('.container');
   const [userTotal, salesTotal, visitorTotal] = await Promise.all([
-      fetchUserData(),
+    fetchUserData(),
     fetchSalesData(),
     fetchVisitorData()
   ]);
 
   const totals = { userTotal, salesTotal, visitorTotal };
 
-  // cards for displying total metrics
-  const createCard = (title, value) => {
+ 
+  const colors = ['#c1b782ff', '#7597bcff', '#6aa778ff']; // orange, blue, green
+
+  
+  const createCard = (title, value, color) => {
     const card = document.createElement('div');
     card.classList.add('card');
-    card.innerHTML = `<h3>${title}: ${value}</h3>`;
+    card.style.backgroundColor = color;
+    card.innerHTML = `<h3>${title} : ${value}</h3>`;
     container.appendChild(card);
   };
 
-  createCard('Total Users', userTotal);
-  createCard('Total Sales', salesTotal);
-  createCard('Total Visitors', visitorTotal);
+  createCard('Total Users', userTotal, colors[0]);
+  createCard('Total Visitors', visitorTotal, colors[2]);
+  createCard('Total Sales', salesTotal, colors[1]);
 
   // Pass totals to chart.js for chart creation
-  // Store in global variable for chart.js to use
   window.dashboardTotals = totals;
 }
+
 
 
 renderCards();

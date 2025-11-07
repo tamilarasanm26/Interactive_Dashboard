@@ -2,12 +2,12 @@
   margin: 0;
   padding: 0;
   width: 240px;
-  background-color: #e7881b;
+   background-color: #a0d1de;
   position: fixed;
   height: 100%;
   overflow: auto;
-  border: 3px solid;
-  border-color: rgb(255, 115, 0);
+  /* border: 3px solid; */
+  /* border-color: rgb(255, 115, 0); */
 }
 
 
@@ -20,12 +20,12 @@
 
 
 .sidebar a.active {
-  background-color: #ffd91c;
+  background-color: #33687d;
   color: white;
 }
 
 
 .sidebar a:hover:not(.active) {
-  background-color: #ffd91c;
+ background-color: #33687d;
   color: white;
 }
