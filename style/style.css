@@ -1,7 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-
 }
 
 h2, p {
@@ -14,31 +13,26 @@ ul {
   padding: 0;
   overflow: hidden;
   background-color: #a0d1de;
-  /* border: 5px solid; */
-  /* border-color: rgb(255, 115, 0); */
 }
 
-
+/* Button Styling */
+ul li button {
+  background-color: #65b1cf;
+  border-radius: 15%;
+  padding: 5px;
+  cursor: pointer;
+  border: none;
+}
 
 ul li button:hover {
   background-color: #ffd91c;
-  
 }
 
-ul li button{
-  background-color: #65b1cf;
-   /* border: 3px solid rgb(255, 115, 0); */
-
-  border-radius: 15%;
-  padding: 5px;
-  
-}
-
-
+/* Toast Notification */
 .toast {
   visibility: hidden;
   width: 500px;
-  background-color: rgb(38, 98, 125); 
+  background-color: rgb(38, 98, 125);
   font-size: 20px;
   font-weight: bold;
   text-align: center;
@@ -49,15 +43,77 @@ ul li button{
   opacity: 10;
   transition: opacity 0.5s, bottom 0.5s;
 }
+
 .toast.show {
   visibility: visible;
   opacity: 1;
   bottom: 50px;
 }
 
+/* Dark Mode */
 .color-mode {
   background-color: black;
   color: white;
 }
 
 
+   /* RESPONSIVE DESIGN */
+
+
+/* Tablet View */
+@media (max-width: 992px) {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+  }
+
+  .toast {
+    width: 70%;
+    margin-left: 15%;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  ul li h2 {
+    font-size: 18px;
+  }
+
+  ul li button {
+    font-size: 14px;
+    padding: 6px 10px;
+    border-radius: 10%;
+  }
+
+  .toast {
+    width: 90%;
+    margin-left: 5%;
+    font-size: 16px;
+  }
+}
+
+/* Small Mobile View */
+/* @media (max-width: 480px) {
+  ul li h2 {
+    font-size: 16px;
+  }
+
+  ul li button {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  .toast {
+    width: 95%;
+    margin-left: 2.5%;
+    font-size: 14px;
+  }
+} */

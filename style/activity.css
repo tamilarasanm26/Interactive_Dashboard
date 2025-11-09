@@ -3,11 +3,8 @@
   margin-top: 100px;
   padding: 20px;
   border: 5px solid #33687d;
- 
   border-radius: 8px;
-    width: 600px;
-    
-
+  width: 600px;
 }
 
 .activity-section h3 {
@@ -20,13 +17,72 @@
   border-collapse: collapse;
 }
 
-.activity-table th, .activity-table td {
+.activity-table th,
+.activity-table td {
   border: 1px solid #ddd;
   padding: 8px 12px;
   text-align: left;
 }
 
 .activity-table th {
-  background-color:#a0d1de;;
+  background-color: #a0d1de;
   color: white;
 }
+
+
+   /* RESPONSIVE DESIGN */
+
+
+/* Tablet View */
+@media (max-width: 992px) {
+  .activity-section {
+    margin-left: 280px;
+    width: 80%;
+  }
+
+  .activity-table {
+    width: 100%;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .activity-section {
+    margin-left: 0;
+    margin-top: 80px;
+    width: 90%;
+    padding: 15px;
+  }
+
+  .activity-table,
+  .activity-table th,
+  .activity-table td {
+    font-size: 14px;
+  }
+
+  .activity-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* Small Mobile View */
+/* @media (max-width: 480px) {
+  .activity-section {
+    margin-left: 0;
+    width: 95%;
+    padding: 10px;
+  }
+
+  .activity-table th,
+  .activity-table td {
+    font-size: 13px;
+    padding: 6px 8px;
+  }
+
+  .activity-section h3 {
+    font-size: 16px;
+    text-align: center;
+  }
+} */
