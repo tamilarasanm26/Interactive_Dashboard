@@ -2,28 +2,29 @@
 async function fetchDashboardData() {
   try {
     const response = await fetch('https://69119ee97686c0e9c20e4613.mockapi.io/api/v1/dashboard');
-    const monthlyData = await response.json(); 
-    const totals = monthlyData.reduce(
-      (acc, item) => {
-        acc.users += item.users;
-        acc.visitors += item.visitors;
-        acc.sales += item.sales;
-        return acc;
-      },
-      { users: 0, visitors: 0, sales: 0 }
-    );
+    const monthlyData = await response.json();
+
+
+    let totals = { users: 0, visitors: 0, sales: 0 };
+
+    monthlyData.forEach(item => {
+      totals.users += item.users;
+      totals.visitors += item.visitors;
+      totals.sales += item.sales;
+    });
+
 
     return totals;
   } catch (error) {
     console.error('Dashboard data fetching error:', error);
-    return { users: 0, visitors: 0, sales: 0 }; 
+    return { users: 0, visitors: 0, sales: 0 };
   }
 }
 
 
 async function renderCards() {
   const container = document.querySelector('.container');
-  const colors = ['#c1b782', '#6aa778', '#7597bc']; 
+  const colors = ['#c1b782', '#6aa778', '#7597bc'];
 
   const { users, visitors, sales } = await fetchDashboardData();
 
@@ -38,7 +39,7 @@ async function renderCards() {
     container.appendChild(card);
   };
 
- 
+
   createCard('Total Users', users, colors[0]);
   createCard('Total Visitors', visitors, colors[1]);
   createCard('Total Sales', sales, colors[2]);
