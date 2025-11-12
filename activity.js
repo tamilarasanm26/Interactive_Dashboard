@@ -18,7 +18,11 @@ function renderActivityTable() {
       <td>${log.time}</td>
     `;
     tableBody.appendChild(row);
+
   });
+
+
 }
 
 window.addEventListener('load', renderActivityTable);
+

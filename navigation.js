@@ -15,4 +15,6 @@
       activitySection.style.display = 'block';
       activityLink.classList.add('active');
       homeLink.classList.remove('active');
+
+      setTimeout(()=> {window.alert("Activity data stored")},500)
     });

@@ -2,7 +2,6 @@ window.addEventListener('load', async () => {
   const ctx = document.getElementById('myChart');
   const filter = document.getElementById('chartFilter');
 
-  
   async function fetchDashboardData() {
     try {
       const response = await fetch('https://69119ee97686c0e9c20e4613.mockapi.io/api/v1/dashboard');

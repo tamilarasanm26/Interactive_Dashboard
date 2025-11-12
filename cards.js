@@ -25,9 +25,11 @@ async function fetchDashboardData() {
 async function renderCards() {
   const container = document.querySelector('.container');
   const colors = ['#c1b782', '#6aa778', '#7597bc'];
-
+  
   const { users, visitors, sales } = await fetchDashboardData();
-
+ 
+  let result = parseInt(sales/users)
+  
 
   const createCard = (title, value, color) => {
     const card = document.createElement('div');
@@ -39,10 +41,11 @@ async function renderCards() {
     container.appendChild(card);
   };
 
-
+   
   createCard('Total Users', users, colors[0]);
   createCard('Total Visitors', visitors, colors[1]);
   createCard('Total Sales', sales, colors[2]);
+  createCard('Success rate', result, colors[0]);
 }
 
 window.addEventListener('load', renderCards);
