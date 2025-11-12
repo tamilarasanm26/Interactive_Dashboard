@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* simple styling for clarity */
+    .card {
+      border: 1px solid #33687d;
+      border-radius: 8px;
+      padding: 10px;
+      margin: 10px;
+      width: 200px;
+      text-align: center;
+      background-color: #f2f2f2;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <ul class="nav">
+    <li class="li" style="float:left !important;">nav1</li>
+    <li class="li" style="float:right;">nav2</li>
+    <li class="li" style="float:right;">nav3</li>
+  </ul>
+
+  <ul class="sidenav">
+    <li class="li">nav1</li>
+    <li class="li">nav2</li>
+    <li class="li">nav3</li>
+  </ul>
+
+  <center>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody id="tablebody"></tbody>
+    </table>
+  </center>
+
+  <center>
+    <div id="container" class="container"></div>
+  </center>
+
+  <script>
+    const activityLog = [
+      { id: 1, name: 'Tamilarasan', action: 'Generated PDF report', time: '09:30 AM' },
+      { id: 2, name: 'Sowmiya', action: 'Checked Sales Data', time: '10:15 AM' }
+    ];
+
+    function tabledata() {
+      const tablebody = document.getElementById('tablebody');
+      tablebody.innerHTML = '';
+
+      activityLog.forEach(log => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${log.id}</td>
+          <td>${log.name}</td>
+        `;
+        tablebody.appendChild(row);
+      });
+    }
+
+    window.addEventListener('load', tabledata);
+  </script>
+
+    <div style="width: 350px; height: 2580; margin: auto;">
+    <canvas id="myChart" width: 650px;  height: 320px; ></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    const ChartLog = [ 
+      { id: 1, name: 'Tamilarasan', action: 'Generated PDF report', time: '09:30 AM' },
+      { id: 2, name: 'Arun', action: 'Uploaded File', time: '10:15 AM' },
+      { id: 3, name: 'Divya', action: 'Downloaded Data', time: '11:00 AM' },
+      { id: 4, name: 'Kumar', action: 'Updated Profile', time: '12:30 PM' },
+    ];
+
+    // Extract data for chart
+    const labels = ChartLog.map(item => item.name);   // names for x-axis
+    const dataValues = ChartLog.map(item => item.id); // IDs as sample numeric data
+
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'User IDs',
+          data: dataValues,
+          borderWidth: 1,
+          backgroundColor: ['red', 'blue', 'yellow', 'green', 'purple', 'orange']
+        }]
+      },
+
+      options: {
+         plugins: {
+        legend: { display: false, onClick: null },
+      },
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
